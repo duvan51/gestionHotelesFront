@@ -1,0 +1,112 @@
+.header{
+    color: var(--color-primary) ;
+    background:var(--background-secondary);
+}
+
+.h{
+    color: var(--color-primary) !important;
+    font-family: var(--letter-title) !important;
+}
+
+.menu{
+    display: flex !important;
+    width: 100%;
+
+   
+  
+}
+.menu>.container{
+    flex-wrap: wrap !important;
+   
+    display: flex;
+    flex-direction: row;
+    align-content: space-between !important;
+}
+
+.MenuCar{
+    display: flex;
+}
+.MenuCar>button{
+    color: brown;
+}
+.MenuCar>div{
+    background-color: red;
+    position: relative;
+    left: -10px;
+    border-radius: 50%;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+.HeaderOptions{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.HeaderOptions>div:nth-child(1)>a{
+    color: aliceblue;
+    font-weight: bold;
+    
+}
+.HeaderOptions>div:nth-child(2){
+    display: flex;
+    
+}
+.buttons{
+    display: flex;
+    gap: 20px;
+}
+.buttons>button{
+    width: 75px;
+    height: 40px;
+    display: flex;
+    
+}
+
+.ButtonLogoutName{
+    gap: 20px;
+
+}
+.ButtonLogoutName>div:nth-child(2){
+    display: flex;
+    align-items: center;
+}
+
+
+
+/*   aqui es config de header de dashboard    */
+
+.imageProfile{
+    height: 50px;
+    width: 50px;
+    background: var(--background-secondary);
+}
+.imageProfile:focus{
+    outline: none;
+    box-shadow: none;
+}
+.contentImageProfile {
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+    
+}
+.contentImageProfile > img{
+    height: 40px;
+    width: 40px;
+    
+}
+
+
+/*   aqui es config de header de dashboard    */
+.swal2-show{
+    top: 60px;
+}

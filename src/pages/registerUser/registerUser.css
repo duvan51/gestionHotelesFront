@@ -1,0 +1,10 @@
+.registerUser{
+background-color: var(--background-primary); 
+   color: var(--color-primary);
+}
+
+.registerUserBody{
+    margin: 0 100px;
+    padding: 100px 0;
+ }
+ 

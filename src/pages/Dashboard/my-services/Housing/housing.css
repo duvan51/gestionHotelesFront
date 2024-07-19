@@ -1,0 +1,6 @@
+.hotelsReservas{
+
+}
+.hotelsReservas>div:nth-child(:first-child){
+    width: 700px !important;
+}

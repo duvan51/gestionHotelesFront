@@ -1,0 +1,39 @@
+.searchComponent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.search{
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.listCitys{
+    overflow-y: auto;
+    max-height: 300px;
+
+}
+.listCitys>div>a{
+    display:flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-container {
+    max-width: 300px; /* Ajusta el ancho máximo según sea necesario */
+  }
+  
+  .dropdown-item-container {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .nav-dropdown-item {
+    display: block;
+    width: 100%;
+  }

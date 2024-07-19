@@ -1,0 +1,66 @@
+.PageSearch{
+    background: var(--background-primary);
+    padding: 0 100px;
+    
+}
+.PageSearchBody{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.HeaderFilter{
+    padding: 20px 0;
+    display: flex;
+    gap:20px;
+    color: var(--color-primary);
+}
+.HeaderFilter>div{
+    border:2px solid var(--background-boton);
+    border-radius: 5%;
+    padding: 5px;
+}
+.PageSearchBodyAlojamientos{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    width: 100%;
+}
+
+
+
+
+.pagination{
+    justify-content: center;
+}
+.pagination > nav > ul{
+    display: flex;
+
+}
+.pagination > nav > ul> li{
+    display: flex;
+    width: auto;
+
+}
+.pagination > nav > ul> li>button{
+
+   justify-content: center;
+}
+.pagination > nav > ul> li>button:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+.pagination > nav > ul> li:first-child >button{
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    
+}
+.pagination > nav > ul> *:not(:first-child):not(:last-child) >button{
+    width: 50px;
+}
+.pagination > nav > ul> li:last-child >button{
+    border-top-right-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    
+}

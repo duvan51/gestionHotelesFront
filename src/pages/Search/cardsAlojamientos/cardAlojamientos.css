@@ -1,0 +1,19 @@
+.cards{
+    width:100%;
+}
+.card-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.card-header>div:nth-child(1){
+    font-weight: bold;
+}
+.card-header>div:nth-child(2){
+    color: rgb(85, 85, 85);
+    font-style: italic;
+}
+.cardRow{
+    display: grid !important;
+    grid-template-columns: 30% 70%;
+}

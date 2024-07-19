@@ -1,0 +1,116 @@
+@import "./pages/Home/Home.css";
+
+
+@import './layouts/header/header.css';
+@import './layouts/Footer/footer.css';
+@import './components/promociones/cardsPromociones.css';
+@import './pages/Search/search.css';
+@import './pages/Search/cardsAlojamientos/cardAlojamientos.css';
+@import './pages/registerUser/registerUser.css';
+@import './layouts/Sidebar/sidebar.css';
+@import './pages/AlojamientoId/alojamientoId.css';
+
+@import './pages/Dashboard/dashboard.css';
+@import './pages/Dashboard/my-services/Housing/housing.css';
+
+@import './pages/Dashboard/my-count/my-bookings/cardBookings.css';
+
+@import './components/search/search.css';
+
+@import './pages/adminApp.css';
+
+
+:root,
+:root.purple {
+  --letter-title:'Concert One', cursive;
+  --letter-text:'Ubuntu', sans-serif;
+  
+  --background-primary:rgb(31, 34, 53); 
+  --background-secondary:#32354a;
+  --background-boton:#FBC201;
+
+  --background-tarjets:rgba(0, 0, 0, 0.74);
+
+  --color-primary: white;
+  --color-primaryTransparent: rgba(255, 255, 255, 0.123);
+  --color-secondary:crimson;
+}
+.purple{
+  background-color:rgb(31, 34, 53);
+  color: var(--color-primary);
+}
+
+:root.black {
+  --letter-title:'Concert One', cursive;
+  --letter-text:'Ubuntu', sans-serif;
+  
+  --background-primary:rgb(0, 0, 0); 
+  --background-secondary:#24252c;
+
+  --background-tarjets:rgba(0, 0, 0, 0.74);
+
+  --color-primary: white;
+  --color-primaryTransparent: rgba(255, 255, 255, 0.123);
+  --color-secondary:rgb(128 110 0);
+
+}
+.black{
+  background-color: black;
+  color: var(--color-primary);
+}
+:root.pink {
+  --letter-title:'Concert One', cursive;
+  --letter-text:'Ubuntu', sans-serif;
+  
+  --background-primary:rgb(255 86 185); 
+  --background-secondary:#ff89f5;
+
+  --background-tarjets:rgba(184, 96, 255, 0.74);
+
+  --color-primary: rgb(0, 0, 0);
+  --color-primaryTransparent: rgba(0, 0, 0, 0.144);
+  --color-secondary:rgb(121 18 206);
+}
+.pink{
+  background-color:rgb(255 86 185);
+  color: var(--color-primary);
+}
+:root.ligth {
+  --letter-title:'Concert One', cursive;
+  --letter-text:'Ubuntu', sans-serif;
+  
+  --background-primary:rgb(255 255 255); 
+  --background-secondary: #d2d2d2;
+
+  --background-tarjets:rgba(141, 163, 130, 0.644);
+
+  --color-primary: black;
+  --color-primaryTransparent: rgb(111 128 102 / 36%);
+  --color-secondary:rgb(111 128 102);
+}
+.ligth{
+  background-color: white;
+  color: var(--color-primary);
+}
+:root.dark {
+    --letter-title: 'Concert One', cursive;
+    --letter-text: 'Ubuntu', sans-serif;
+    --background-primary: rgb(35 35 35);
+    --background-secondary: #333333;
+    --background-tarjets: rgb(63 63 63 / 64%);
+    --color-primary: white;
+    --color-primaryTransparent: rgb(111 128 102 / 36%);
+    --color-secondary: rgb(84 84 84);
+}
+.dark{
+  background-color: #333333;
+  color: var(--color-primary);
+}
+
+
+#root{
+  width:100%;
+  height: 100%;
+  overflow-x:hidden;
+  margin:0;
+}

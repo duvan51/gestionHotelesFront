@@ -5,6 +5,11 @@ export const GET_USERS_ALOJAMIENTOS = gql`
     getUsers {
       id
       Name
+      lastName
+      email
+      dateBirth
+      photo
+
       Alojamientos {
         id
         title
@@ -18,7 +23,6 @@ export const GET_USERS_ALOJAMIENTOS = gql`
         pais
         whattsap
       }
-      
     }
   }
 `;
@@ -78,10 +82,12 @@ export const GET_USERS_uniq = gql`
         alojamientoId
         ReservaAlojamientos {
           id
-          daysReserva
           id_habitacion
+          daysReserva
           price
-          reservaId
+          typeOfHabitacion {
+            id
+          }
         }
       }
     }
@@ -117,6 +123,23 @@ export const GET_ALOJAMIENTO_ID = gql`
       pais
       ubicacion
       whattsap
+      reservas {
+        id
+        alojamientoId
+        birthCheckout
+        birthCheking
+        ReservaAlojamientos {
+          id
+          id_habitacion
+          daysReserva
+          price
+          birthCheckout
+          birthCheking
+          typeOfHabitacion {
+            id
+          }
+        }
+      }
       typeOfHabitacion {
         nameOfHabitacion
         numberHabitacions
@@ -128,6 +151,97 @@ export const GET_ALOJAMIENTO_ID = gql`
     }
   }
 `;
+export const Get_Reservas_ById = gql`
+  query GetReservasById($id: ID!) {
+    getReservasById(id: $id) {
+      id
+      payment
+      daysAlojamientos
+      paymentTotal
+      birthCheking
+      birthCheckout
+      userId
+      payment
+      status
+      alojamientoId
+      ReservaAlojamientos {
+        id
+        daysReserva
+        id_habitacion
+        price
+        reservaId
+      }
+    }
+  }
+`;
+
+
+export const GetReservaAlojamientoById = gql`
+  query GetReservaAlojamientoById($id: ID!) {
+    getReservaAlojamientoById(id: $id){
+    reservaId
+    alojamientoId
+    birthCheckout
+    birthCheking
+    daysReserva
+    id
+    id_habitacion
+    price
+    typeOfHabitacion {
+      id
+      alojamientoId
+      nameOfHabitacion
+      numberHabitacions
+      numbersCama
+      price
+    }
+      }
+  }
+`;
+
+
+export const GetReservaAlojamiento = gql`
+  query GetReservaAlojamiento {
+    getReservaAlojamiento{
+    reservaId
+    alojamientoId
+    birthCheckout
+    birthCheking
+    daysReserva
+    id
+    id_habitacion
+    price
+    typeOfHabitacion {
+      id
+      alojamientoId
+      nameOfHabitacion
+      numberHabitacions
+      numbersCama
+      price
+    }
+      }
+  }
+`;
+
+
+export const GetBeneficios = gql`
+  query GetBeneficio{
+    getBeneficios {
+    description
+    iconoPrincipal
+    id
+    imagePrincipal
+    title
+  }
+  }
+
+`
+
+
+
+
+
+
 export const Add_Alojamiento = gql`
   mutation CreateAlojamientos(
     $title: String!
@@ -243,6 +357,35 @@ export const Add_Reserva = gql`
     }
   }
 `;
+
+export const Add_Beneficios = gql`
+  mutation(
+    $description:String!
+    $iconoPrincipal:String!
+    $imagePrincipal:String!
+    $title:String!
+    ){
+    createBeneficio(
+    description:$description
+    iconoPrincipal:$iconoPrincipal
+    imagePrincipal:$imagePrincipal
+    title:$title
+    
+    ){
+    description
+    iconoPrincipal
+    imagePrincipal
+    title
+    
+    }
+    
+    }
+  
+`;
+
+
+
+
 export const Add_Reserva_Alojamiento = gql`
   mutation (
     $reservaId: Int!
@@ -250,6 +393,8 @@ export const Add_Reserva_Alojamiento = gql`
     $price: String!
     $daysReserva: Int!
     $alojamientoId: String!
+    $birthCheking: String!
+    $birthCheckout: String!
   ) {
     createReservaAlojamiento(
       reservaId: $reservaId
@@ -257,11 +402,16 @@ export const Add_Reserva_Alojamiento = gql`
       price: $price
       alojamientoId: $alojamientoId
       daysReserva: $daysReserva
+      birthCheking: $birthCheking
+      birthCheckout: $birthCheckout
     ) {
       reservaId
       id_habitacion
       price
       daysReserva
+      alojamientoId
+      birthCheking
+      birthCheckout
     }
   }
 `;

@@ -3,13 +3,15 @@ import Table from "react-bootstrap/Table";
 import { CartContext } from "../../../../context/carContext";
 import { BiArrowBack } from "react-icons/bi";
 
-import { GET_ALOJAMIENTO_ID } from "../../../../services/queries";
+import { GET_ALOJAMIENTO_ID} from "../../../../services/queries";
 import { useQuery } from "@apollo/client";
 
 import ButtonPaypal from "../../../../components/paypal/ButtonPaypal";
 import AddReserva from "./addReserva";
 import { RiDeleteBin5Line, RiApps2AddFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
+import Calendar from "./calendar";
+import InputCalendary from "./inputCalendary";
 
 import moment from "moment";
 
@@ -20,12 +22,17 @@ const MyCar = () => {
   const [selectedDate1, setSelectedDate1] = useState(0);
   const [selectedDate2, setSelectedDate2] = useState("");
 
+
   const [alojamiento, setAlojamiento] = useState(null);
 
   const [tot, setT] = useState();
   //tarigo el hotel de mi seleccion cart
 
-  
+  //aqui voy a traer las res
+
+ 
+
+  // console.log(cart)
 
   const id = cart.length > 0 ? cart[0].alojamientoId : null;
 
@@ -37,6 +44,9 @@ const MyCar = () => {
       setAlojamiento(data.getAlojamientoById);
     }
   }, [data]);
+
+ // console.log(data)
+
 
 
   //navegar al my-bookings
@@ -71,6 +81,8 @@ const MyCar = () => {
   const diff = end.diff(start, "days");
 
 
+
+
   var xTotal = 0;
   var suma = cart.forEach((element) => {
     const numb = diff * Number(element.price);
@@ -84,6 +96,9 @@ const MyCar = () => {
     const link = `/views/${id}`;
     navigate(link);
   };
+
+
+  //console.log(cart)
 
   return (
     <div>
@@ -115,12 +130,23 @@ const MyCar = () => {
           <tbody>
             {cart ? (
               cart.map((x) => (
+                ("cart====>" ,x),
+
                 <tr key={x.id}>
-                  <td>1</td>
+                  <td className="z-3">
+                   
+                  </td>
+                  <td>{x.id}</td>
                   <td>{x.name}</td>
                   <td>{x.numberHabitacions}</td>
                   <td>$ {x.price}</td>
                   <td>
+                    <InputCalendary
+                      data={alojamiento}
+                      idHabitacion={x.id}
+                      start={start} 
+                      ends={end}
+                    />
                     <input
                       type="date"
                       value={selectedDate1}
@@ -142,6 +168,7 @@ const MyCar = () => {
                       <RiDeleteBin5Line />
                     </button>
                   </td>
+                  
                 </tr>
               ))
             ) : (
@@ -170,9 +197,6 @@ const MyCar = () => {
           </div>
         </div>
       </div>
-      <div>
-        <ButtonPaypal data={xTotal} />
-      </div>
 
 
       <div>
@@ -184,6 +208,15 @@ const MyCar = () => {
           cheking={start.format('DD/MM/yy')}
           checkout={end.format('DD/MM/yy')}
         />
+      </div>
+      <div className="d-flex">
+        <Calendar 
+          start={start} 
+          ends={end} 
+        />
+      </div>
+      <div className="pt-5 d-flex">
+        <ButtonPaypal data={xTotal} />
       </div>
     </div>
   );

@@ -25,9 +25,11 @@ const AddReserva = ({
 
   const { dispatch, cart } = useContext(CartContext);
   const navigate = useNavigate();
-  
+  const status = "procesando"
 
 
+
+  // console.log(dataAlojamientosHabitacion)
   //!este es dataalojamiento
   //console.log(dataAlojamiento)
   const idUser = localStorage.getItem("id");
@@ -40,7 +42,8 @@ const AddReserva = ({
         cheking &&
         checkout &&
         diasReserva &&
-        idUser
+        idUser &&
+        status
       ) {
         const response = await AddReservas({
           variables: {
@@ -51,31 +54,37 @@ const AddReserva = ({
             paymentTotal: payment,
             userId: Number(idUser),
             alojamientoId: Number(dataAlojamiento.id),
-            status: "procesando",
+            status: status
           },
         });
         const reservaId = Number(response.data.createReserva.id);
 
-        //console.log("Reserva created:", reservaId);
+        console.log("Reserva created:", reservaId);
 
-        // console.log('dataAlojamiento si existe',dataAlojamiento)
+         console.log('dataAlojamiento si existe',dataAlojamiento)
         //entradas de las reservaAlojamiento
         if (dataAlojamiento) {
           const reservaAlojamientoPromises = dataAlojamientosHabitacion.map(
             (x) =>
+              
+
               AddReservaAlojamiento({
                 variables: {
                   reservaId: reservaId,
-                  id_habitacion: Number(x.alojamientoId),
+                  id_habitacion: Number(x.id),
                   price: (Number(x.price) * diasReserva).toString(),
                   daysReserva: Number(diasReserva),
-                  alojamientoId: dataAlojamiento.id,
+                  alojamientoId: (dataAlojamiento.id).toString(),
+                  birthCheking: cheking,
+                  birthCheckout: checkout,
+                  
                 },
+                
               })
           );
            await Promise.all(reservaAlojamientoPromises);
 
-          // console.log("ReservaAlojamientos created:", results);
+         
         } else {
           console.log("data no ha cargado ...");
           return null
@@ -90,9 +99,15 @@ const AddReserva = ({
     } catch (error) {
       if (error.networkError) {
         console.log("error de red => ", error.networkError.message);
-      } else if (error.graphQLErrors) {
-        error.graphQLErrors.forEach((graphQLErrors) => {
-          console.error("error de graphl => ", graphQLErrors.message);
+      }else if (error.graphQLErrors) {
+        error.graphQLErrors.forEach((graphQLError) => {
+          console.error("Error de GraphQL:");
+          console.error("Mensaje:", graphQLError.message);
+          console.error("Ruta:", graphQLError.path);
+          console.error("Ubicaciones:", graphQLError.locations);
+          if (graphQLError.extensions) {
+            console.error("Extensiones:", graphQLError.extensions);
+          }
         });
       } else {
         console.error("Error desconocido:", error.message);

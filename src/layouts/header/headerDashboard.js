@@ -74,7 +74,7 @@ const HeaderDashboard = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto menu">
             <Container className="d-flex justify-content-between align-items-center">
-              <div>
+              <div onClick={()=>{navigate("/")}} className="logo">
                 <Nav href="#home">Hoteles</Nav>
               </div>
 

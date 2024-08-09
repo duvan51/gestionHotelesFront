@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import CardDeleteBooking from './cardDeleteBooking.js';
+import moment from "moment";
 
 
 import Row from "react-bootstrap/Row";
@@ -16,30 +17,47 @@ import { FaCodeCompare } from "react-icons/fa6";
 
 const CardAlojamientos = ({ info, idAlojamiento }) => {
   const navigate = useNavigate();
-  const URLIMAGE = `http://localhost:8080/uploads`;
+  const idAlojamientos = info.alojamientoId
+
 
   const { loading, error, data } = useQuery(GET_ALOJAMIENTO_ID, {
-    variables: { id: idAlojamiento },
+    variables: { id: idAlojamientos },
   });
+
 
   const handleCardClick = (id) => {
     // navigate(`/views/${id}`)
     console.log("Hell", id);
   };
- // console.log("data=>", data);
- // console.log("info=>", info);
+
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <p>Error--: {error.message}</p>;
+ const fechaEs = moment(`${info.birthCheckout }`, "DDMMYYYY").fromNow();
+
+ let statusStyle = {};
+ if (info.status === 'procesando') {
+  statusStyle = { backgroundColor: '#0b5ed7', color: 'black' };
+} else if (info.status === 'completado') {
+  statusStyle = { backgroundColor: '#157347', color: 'black' };
+} else if (info.status === 'espera') {
+  statusStyle = { backgroundColor: '#fbc201', color: 'black' };
+} else if (info.status === 'cancelado') {
+  statusStyle = { backgroundColor: '#c32f3d', color: 'black' };
+} else {
+  statusStyle = { backgroundColor: '#ffffff', color: 'black' };
+}
+
+
 
   return (
-    <div className="cardsBooking">
-      <Card>
-        <Card.Header>{info.title}</Card.Header>
+    <div className= {`cardsBooking `}>
+      <Card >
+        <Card.Header  style={statusStyle}>{info.status}</Card.Header>
         <Row className="cardRow">
           <Col className="cardImage">
             <Image
-              src={`${URLIMAGE}${data.getAlojamientoById.imagePrincipal}`}
+              src={`${data.getAlojamientoById.imagePrincipal}`}
               thumbnail
               fluid
             />
@@ -51,12 +69,31 @@ const CardAlojamientos = ({ info, idAlojamiento }) => {
               </Card.Title>
               <Card.Text>{data.getAlojamientoById.description}</Card.Text>
               <Card.Text>$ {info.paymentTotal}</Card.Text>
+              {
+                info.status=== "procesando" ? (
+                  <div> 
+                  <button className="btn">
+                      agregar recuerdos
+                  </button>
+                </div>
+
+                ): info.status === "completado" ?(
+                  <div> 
+                  <button className="btn">
+                      ver Recuerdos
+                  </button>
+                </div>
+                ) : (
+                  <></>
+                )
+              }
+             
             </Card.Body>
           </Col>
           <Col className="cardActions">
-            <div>
+            <div className="d-flex align-items-center">
               <div>
-                <span>create hace 15 dias</span>
+                <span className="text-secondary">{fechaEs}</span>
               </div>
               <Button
                 variant="primary"

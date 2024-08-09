@@ -12,6 +12,7 @@ const Search = ({onData}) => {
   const[valueInput, setValueInput]=useState("");
 
 
+
   
   const searcher = (e) => {
     setSearch(e.target.value);
@@ -44,6 +45,8 @@ const Search = ({onData}) => {
     }
   }, [getCiudades, getRegions]);
 
+
+
   let results = [];
   if (!search) {
     results = ciudades;
@@ -52,8 +55,9 @@ const Search = ({onData}) => {
       x.municipio.toLowerCase().includes(search.toLowerCase())
     );
   }
-  //console.log('regions=> ', Regions)
-  //console.log('ciuadades=> ', ciudades)
+
+
+  
   const handleSelect = (eventKey) => setValueInput(eventKey)
   const sendDataToParent = () => {
     if(valueInput===1){
@@ -70,6 +74,7 @@ const Search = ({onData}) => {
   
 
 
+
   return (
     <div className="search">
       <input
@@ -78,9 +83,10 @@ const Search = ({onData}) => {
         type="text"
         placeholder="search"
         className="form-control"
+        
       />
 
-      <button onClick={sendDataToParent}>
+      <button onClick={sendDataToParent} className="btn btn-success">
         search
       </button>
 

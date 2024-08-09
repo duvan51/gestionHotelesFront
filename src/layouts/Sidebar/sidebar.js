@@ -19,6 +19,7 @@ const Sidebar = () => {
     }
   }, [data]);
 
+
   return (
     <div className="sidebar">
       {/*grupo de cosas de perfil"*/}
@@ -93,7 +94,7 @@ const Sidebar = () => {
           </Accordion.Item>
 
           {/*grupo de servicios que ofrezco"*/}
-          {Alojamientos > 0 ? (
+          {Alojamientos ? (
             <Accordion.Item eventKey="1">
               <Accordion.Header>Mis servicios</Accordion.Header>
               <Accordion.Body>
@@ -129,7 +130,7 @@ const Sidebar = () => {
                 </Link>
                 <Link
                   className="sidebarMenuNavegacionItems"
-                  to="/dashboard/list-housing"
+                  to="/dashboard/cuartos"
                 >
                   <div className="sidebarMenuNavegacionItemsItem" href="">
                     <div className="sidebarMenuNavegacionItemsItemBody">

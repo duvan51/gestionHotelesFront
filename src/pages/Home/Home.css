@@ -17,7 +17,7 @@
 
 
 .HomeBody{
-   margin: 0 100px;
+   margin: 0 89px;
 }
 
 .HomeBodyOfertasCiudadesGrid{
@@ -49,6 +49,7 @@
 }
 .HomeBodyOfertasBanners > .HomeBodyOfertasBannersCarrousel >div{
    background: var(--background-primary);
+   border: none;
 }
 
 .div1 { grid-area: 1 / 1 / 3 / 5; }

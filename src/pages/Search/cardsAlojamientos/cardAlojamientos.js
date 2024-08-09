@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 const CardAlojamientos = ({info}) => {
   const navigate = useNavigate();
-  const URLIMAGE = `http://localhost:8080/uploads`;
+  
 
   const handleCardClick = (id) => {
     navigate(`/views/${id}`)
@@ -30,7 +30,7 @@ console.log(info)
             </Card.Header>
             <Row className='cardRow'>
                 <Col className='cardImage'>
-                  <Image src={`${URLIMAGE}${info.imagePrincipal}`} thumbnail fluid/>
+                  <Image src={`${info.imagePrincipal}`} thumbnail fluid/>
                 </Col>
                 <Col >
                 <Card.Body>

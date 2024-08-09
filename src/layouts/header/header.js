@@ -37,8 +37,7 @@ const Header = () => {
           <Nav className="me-auto menu">
             <Container className="d-flex justify-content-between">
               <div>
-                <Nav href="#home">Hoteles</Nav>
-                <Nav href="#home">Favoritos</Nav>
+                
               </div>
 
               <div className="HeaderOptions">
@@ -80,6 +79,7 @@ const Header = () => {
                     </button>
                   </div>
                 ) : (
+                  
                   <div className="ButtonLogoutName">
                     <div>
                       <button onClick={handleLogut}

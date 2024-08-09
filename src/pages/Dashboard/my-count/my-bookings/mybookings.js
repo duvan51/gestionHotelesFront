@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
-import { GET_USERS_uniq, GET_ALOJAMIENTOS } from "../../../../services/queries";
+import { GET_USERS_uniq, Get_Reservas_ById } from "../../../../services/queries";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Pagination } from "flowbite-react";
 import CardAlojamientos from "./cardBookings";
@@ -8,8 +8,6 @@ import CardAlojamientos from "./cardBookings";
 const Mybookings = () => {
   const ITEMS_PER_PAGE = 9;
   const { loading, error, data } = useQuery(GET_USERS_uniq);
-  
-
   const [Reservas, setReservas] = useState([]);
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -34,6 +32,8 @@ const Mybookings = () => {
       setReservas(data.getUser.Reservas);
     }
   }, [data]);
+
+
 
   //pagination
   const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -65,7 +65,7 @@ const Mybookings = () => {
       window.location.reload();
       return <p>Error not : {error.message}</p>;
     }
-    return <p>Error: {error.message}</p>;
+    return <p>Error-: {error.message}</p>;
   }
 
   return (
@@ -78,15 +78,18 @@ const Mybookings = () => {
         className="form-control"
       />
       <div className="HeaderFilter">
-        <NavDropdown title="Status" id="basic-nav-dropdown"></NavDropdown>
+        <NavDropdown title="Status" id="basic-nav-dropdown">
+          <NavDropdown.Item eventKey="4.1">Procesando</NavDropdown.Item>
+          <NavDropdown.Item eventKey="4.2">Completado</NavDropdown.Item>
+          <NavDropdown.Item eventKey="4.3">En espera</NavDropdown.Item>
+        </NavDropdown>
         <NavDropdown title="Destino" id="basic-nav-dropdown"></NavDropdown>
       </div>
       <div className="PageSearchBody">
         <div className="PageSearchBodyAlojamientos">
           {resultsToDisplay ? (
             resultsToDisplay.map((x) => (
-              // console.log(x),
-              <CardAlojamientos key={x.id} info={x} idAlojamiento={x.userId} />
+              <CardAlojamientos key={x.id} info={x} idAlojamiento={x.id} />
               // <></>
             ))
           ) : (

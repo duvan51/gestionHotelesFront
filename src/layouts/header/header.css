@@ -1,6 +1,7 @@
 .header{
     color: var(--color-primary) ;
     background:var(--background-secondary);
+
 }
 
 .h{
@@ -65,11 +66,12 @@
     gap: 20px;
 }
 .buttons>button{
-    width: 75px;
+    width: 80px;
     height: 40px;
     display: flex;
     
 }
+
 
 .ButtonLogoutName{
     gap: 20px;
@@ -104,7 +106,9 @@
     width: 40px;
     
 }
-
+.logo{
+    cursor:pointer;
+}
 
 /*   aqui es config de header de dashboard    */
 .swal2-show{

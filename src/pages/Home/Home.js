@@ -15,13 +15,17 @@ import FilterCiudades from '../../components/promociones/filterCiudades.js'
 import Footer from '../../layouts/Footer/footer.js'
 
 
+import CarrouselmultipleItems from '../../components/promociones/carrouselMultiple.js'
+
 import ImageBanner from '../../assets/hotels.png'
 import Search from '../../components/search/search.js'
 import { useState } from 'react'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 
 
 function Home (){
+  const navigate = useNavigate()
 
   const [dataFromChild, setDataFromChild] = useState('');
 
@@ -33,6 +37,11 @@ function Home (){
     setDataFromChild(data);
   };
 //-----------------------------------------------
+
+
+  const handleclick = () =>{
+    navigate('/search')
+  }
   
 
   return (
@@ -44,18 +53,18 @@ function Home (){
             <div className='HomeBanner'>
               <img src={ImageBanner} />
             </div>
-            <div className='searchComponent'>
-              <Search onData={handleDataFromChild}/>
-            </div>
             <div className='HomeBody'>
-              <div className='HomeBodyOfertasBanners'>
+            <div className='searchComponent' onClick={handleclick}>
+              <Search onData={handleDataFromChild}  />
+            </div>
+              <div className='HomeBodyOfertasBanners pt-4'>
                   <div>Ofertas Exclusivas</div>
                   <h3>Alojamientos en Villavicencio</h3>
-                  <div className='HomeBodyOfertasBannersCarrousel'>
-                    <FilterCiudades ciudad={'Villavicencio'} />
+                  <div className='HomeBodyOfertasBannersCarrousel '>
+                    <CarrouselmultipleItems ciudad={'Villavicencio'} />
                   </div>
               </div>
-              <div className='HomeBodyOfertasCiudades'>
+              <div className='HomeBodyOfertasCiudades pt-4'>
                 <h2>Ciudades principales</h2>
                 <div className='HomeBodyOfertasCiudadesGrid'>
                    <div className='div1'><h2>Amazonas</h2><img src={amazonas} /></div>
@@ -66,10 +75,10 @@ function Home (){
                    <div className='div6'><h2>Medellin</h2><img src={medellin}  /></div> 
                 </div>
               </div>
-              <div className='HomeBodyOfertasBanners'>
+              <div className='HomeBodyOfertasBanners pt-4'>
                   <h3>Alojamientos en Bogota </h3>
                   <div className='HomeBodyOfertasBannersCarrousel'>
-                    <FilterCiudades ciudad={'bogota'} />
+                    <CarrouselmultipleItems ciudad={'Bogotá D.C.'} />
                   </div>
               </div>
             </div>  

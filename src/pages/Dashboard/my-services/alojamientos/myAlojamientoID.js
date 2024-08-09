@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
-import { GET_ALOJAMIENTO_ID } from "../../services/queries";
+import { GET_ALOJAMIENTO_ID } from "../../../../services/queries";
 import { useParams } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 import Nav from 'react-bootstrap/Nav';
+import { useNavigate } from 'react-router-dom';
 
-import CardHabitacion from "./cardHabitacions/cardHabitacion";
+
 
 const AlojamientoId = () => {
+    const navigate = useNavigate();
+
+    
 
   const { id } = useParams();
   const { loading, error, data } = useQuery(GET_ALOJAMIENTO_ID, {
@@ -32,7 +36,7 @@ const AlojamientoId = () => {
   if (!alojamiento) return <p>No se encontró el alojamiento</p>;
 
   return (
-    <div className="alojamientoId pt-5">
+    <div className="">
       <div className="alojamientoIdHeader">
         <div>
           <Image
@@ -83,9 +87,9 @@ const AlojamientoId = () => {
                 <h3>Habitaciones</h3>
             </div>
             <div className="alojamientoIdInfoHabitacionsCards">
-                {alojamiento.typeOfHabitacion.map(x =>(
-                    <CardHabitacion data={x} key={x.id} />
-                ))}
+                
+
+                
             </div>
         </div>
         <div className="alojamientoIdInfoOpiniones">

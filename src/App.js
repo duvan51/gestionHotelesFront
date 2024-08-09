@@ -10,7 +10,7 @@ import RegisterUser from "./pages/registerUser/registerUser.js";
 import Dashboard from "./pages/Dashboard/dashboard.js";
 
 import Sidebar from "./layouts/Sidebar/sidebar.js";
-import alojamientos from "./pages/Dashboard/my-services/Housing/housing.js";
+import Alojamientos from "./pages/Dashboard/my-services/Housing/housing.js";
 
 import Summary from "./pages/Dashboard/my-services/summary/summary.js";
 import Listhousing from "./pages/Dashboard/my-services/Housing/housing.js";
@@ -18,6 +18,9 @@ import Listhousing from "./pages/Dashboard/my-services/Housing/housing.js";
 import AllMyAlojamientos from "./pages/Dashboard/my-services/alojamientos/allMyAlojamientos.js";
 import AddAlojamientos from "./pages/Dashboard/my-services/alojamientos/addAlojamientos.js";
 import Mybookings from "./pages/Dashboard/my-count/my-bookings/mybookings.js";
+import MyAlojamientoId from "./pages/Dashboard/my-services/alojamientos/myAlojamientoID.js"
+import IdMyBooking from "./pages/Dashboard/my-count/id-mi-booking/idMyBooking.js";
+
 
 import AlojamientosID from "./pages/AlojamientoId/alojamientoId.js";
 
@@ -92,7 +95,9 @@ function App() {
                       <Sidebar />
                       <div className="content">
                         <HeaderDashboard />
-                        <Dashboard />
+                        <div className="contentBody">
+                          <Dashboard />
+                        </div>
                       </div>
                     </div>
                   </ProtectedRoute>
@@ -106,7 +111,10 @@ function App() {
                       <Sidebar />
                       <div className="content">
                       <HeaderDashboard />
+                      <div className="contentBody">
                         <Perfil />
+                      </div>
+                        
                       </div>
                     </div>
                   </ProtectedRoute>
@@ -120,7 +128,9 @@ function App() {
                       <Sidebar />
                       <div className="content">
                       <HeaderDashboard />
+                      <div className="contentBody">
                         <Listhousing />
+                      </div>
                       </div>
                     </div>
                   </ProtectedRoute>
@@ -134,7 +144,10 @@ function App() {
                       <Sidebar />
                       <div className="content">
                       <HeaderDashboard />
-                        <AddAlojamientos />
+                      <div className="contentBody">
+                          <AddAlojamientos />
+                      </div>
+                        
                       </div>
                     </div>
                   </ProtectedRoute>
@@ -148,7 +161,10 @@ function App() {
                       <Sidebar />
                       <div className="content">
                       <HeaderDashboard />
-                        <AllMyAlojamientos />
+                      <div className="contentBody">
+                         <AllMyAlojamientos />
+                      </div>
+                        
                       </div>
                     </div>
                   </ProtectedRoute>
@@ -162,7 +178,27 @@ function App() {
                       <Sidebar />
                       <div className="content">
                       <HeaderDashboard />
-                        <Summary />
+                      <div className="contentBody">
+                           <Summary />
+                      </div>
+                        
+                      </div>
+                    </div>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/dashboard/cuartos"
+                element={
+                  <ProtectedRoute>
+                    <div className="page-with-sidebar">
+                      <Sidebar />
+                      <div className="content">
+                      <HeaderDashboard />
+                      <div className="contentBody">
+                           <Alojamientos />
+                      </div>
+                        
                       </div>
                     </div>
                   </ProtectedRoute>
@@ -176,7 +212,10 @@ function App() {
                       <Sidebar />
                       <div className="content">
                       <HeaderDashboard />
-                        <Summary />
+                      <div className="contentBody">
+                          <Summary />
+                      </div>
+                        
                       </div>
                     </div>
                   </ProtectedRoute>
@@ -190,7 +229,10 @@ function App() {
                       <Sidebar />
                       <div className="content">
                       <HeaderDashboard />
-                        <MyCar />
+                      <div className="contentBody">
+                         <MyCar />
+                      </div>
+                        
                       </div>
                     </div>
                   </ProtectedRoute>
@@ -205,12 +247,54 @@ function App() {
                       <Sidebar />
                       <div className="content">
                       <HeaderDashboard />
-                        <Mybookings />
+                      <div className="contentBody">
+                          <Mybookings />
+                      </div>
                       </div>
                     </div>
                   </ProtectedRoute>
                 }
               />
+              <Route
+                path="/dashboard/my-bookings/:id"
+                element={
+                  <ProtectedRoute>
+                    <div className="page-with-sidebar">
+                      <Sidebar />
+                      <div className="content">
+                      <HeaderDashboard />
+                      <div className="contentBody">
+                          <IdMyBooking />
+                      </div>
+                      </div>
+                    </div>
+                  </ProtectedRoute>
+                }
+              />
+
+
+
+
+              <Route
+                path="/dashboard/all&alojamientos/:id"
+                element={
+                  <ProtectedRoute>
+                    <div className="page-with-sidebar">
+                      <Sidebar />
+                      <div className="content">
+                      <HeaderDashboard />
+                      <div className="contentBody">
+                       <MyAlojamientoId />
+                      </div>
+                       
+                      </div>
+                    </div>
+                  </ProtectedRoute>
+                }
+              />
+
+
+
             </>
 
             <Route

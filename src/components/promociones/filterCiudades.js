@@ -8,8 +8,6 @@ import { GET_ALOJAMIENTOS } from '../../services/queries';
 
 export default function BasicDemo({ciudad}) {
 
-    const URLIMAGE = `http://localhost:8080/uploads`;
-
     const [ciudades, setCiudades] = useState([]);
 
     const { loading, error, data } = useQuery( GET_ALOJAMIENTOS );
@@ -75,7 +73,7 @@ export default function BasicDemo({ciudad}) {
         return (
             <div className="border-1 surface-border border-round m-2 text-center py-5 px-3">
                 <div className="mb-3 cardImage">
-                    <img src={`${URLIMAGE}${product.imagePrincipal}`} alt={product.name} className="w-6 shadow-2" />
+                    <img src={`${product.imagePrincipal}`} alt={product.name} className="w-6 shadow-2" />
                 </div>
                 <div>
                     <h4 className="mb-1">{product.title}</h4>

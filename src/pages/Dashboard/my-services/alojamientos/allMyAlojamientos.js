@@ -5,17 +5,18 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 
 import DeleteAlojamiento from "./components.js/deleteAlojamiento";
 
 const AllMyAlojamientos = () => {
- 
+  const navigate = useNavigate();
 
 
   const { loading, error, data } = useQuery(GET_USERS_uniq);
   const [alojamientos, setAlojamientos] = useState(null);
-  const URLIMAGE = "http://localhost:8080/uploads";
+  
 
   useEffect(() => {
     if (data && data.getUser) {
@@ -25,6 +26,10 @@ const AllMyAlojamientos = () => {
   }, [data]);
 
  // console.log(alojamientos)
+ const handleCardClick = (id) => {
+  navigate(`/dashboard/all&alojamientos/${id}`)
+ };
+
 
 
 
@@ -44,7 +49,7 @@ const AllMyAlojamientos = () => {
               <Card>
                 <Card.Img
                   variant="top"
-                  src={`${URLIMAGE}${x.imagePrincipal}`}
+                  src={`${x.imagePrincipal}`}
                 />
 
                 <Card.Body>
@@ -56,6 +61,7 @@ const AllMyAlojamientos = () => {
                   <small className="text-muted">
                     <DeleteAlojamiento deletBo={x.id} />
                     <button >Edit</button>
+                    <button  onClick={() => handleCardClick(x.id) }>View</button>
                   </small>
                 </Card.Footer>
               </Card>

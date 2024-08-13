@@ -24,7 +24,7 @@
       "prettier"
     ],
     "rules": {
-      "jsx-a11y/alt-text": "warn",  // Cambia de "error" a "warn" si prefieres advertencias
+      "jsx-a11y/alt-text": "off", // Cambia de "error" a "warn" si prefieres advertencias
       "no-unused-vars": "warn",     // Cambia de "error" a "warn" si prefieres advertencias
       "react/prop-types": "off",     // Desactiva la regla de prop-types si no usas PropTypes
       "prettier/prettier": "off", // Desactiva las reglas de Prettier

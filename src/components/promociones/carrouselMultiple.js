@@ -22,7 +22,7 @@ function MultipleItems({ciudad}) {
             const ciudadFilter = products.filter(x => x.ciudad === ciudad);
             setCiudades(ciudadFilter)
         }
-      }, [data]); // e<- add empty brackets here
+      }, [data, ciudad]); // e<- add empty brackets here
       if (loading) return <p>Loading...</p>;
       if (error) return <p>Error: {error.message}</p>;
 

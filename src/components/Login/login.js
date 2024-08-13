@@ -4,11 +4,11 @@ import withReactContent from "sweetalert2-react-content";
 
 import { useMutation } from "@apollo/client";
 import { Login_User } from "../../services/queries";
-import { useHistory } from "react-router-dom";
+
 
 const Login = () => {
   const [inputValues, setInputValues] = useState({ email: "", password: "" });
-  const [login, { loading, error }] = useMutation(Login_User);
+  const [login] = useMutation(Login_User);
 
   const showSwal = () => {
     const MySwal = withReactContent(Swal);

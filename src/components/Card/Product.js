@@ -8,7 +8,7 @@ const Product = ({data}) => {
     <div>
       <div className="card" >
       <div className="cardImage">
-        <img src={data.imagePrincipal} className="card-img-top" alt="..." />
+        <img src={data.imagePrincipal} className="card-img-top"  />
       </div>
         <div className="card-body"> 
           <h5 className="card-title">{(data.title)}</h5>
@@ -16,7 +16,7 @@ const Product = ({data}) => {
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </p>
-          <a href="#" className="btn btn-primary">
+          <a className="btn btn-primary">
             Go somewhere
           </a>
         </div>

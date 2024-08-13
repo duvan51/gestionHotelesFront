@@ -23,6 +23,8 @@ const TableComponent = ({ data, deleteId, onButtonClick }) => {
     xTotal += element
   });
 
+ console.log(suma)
+
 
 
   return (

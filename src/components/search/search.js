@@ -12,7 +12,7 @@ const Search = ({onData}) => {
   const[valueInput, setValueInput]=useState("");
 
 
-
+  console.log(Regions)
   
   const searcher = (e) => {
     setSearch(e.target.value);

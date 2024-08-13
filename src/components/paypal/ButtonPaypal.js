@@ -19,6 +19,8 @@ const ButtonPaypal = ({data}) => {
         }
       }, [data]);
 
+      console.log(actions)
+
   
   return (
     <div className='row justify-content-md-center'>

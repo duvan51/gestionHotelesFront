@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row';
 import * as formik from 'formik';
 import * as yup from 'yup';
 
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
 import { Add_User } from '../../services/queries';
@@ -16,7 +16,7 @@ import { Add_User } from '../../services/queries';
 
 
 function RegisterUserForm()  {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
  const [ addUser, { data, loading, error }] = useMutation(Add_User);
 
 

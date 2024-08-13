@@ -1,0 +1,38 @@
+{
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": [
+        "react-app",
+    "plugin:prettier/recommended",
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:jsx-a11y/recommended"
+    
+    ],
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react",
+      "jsx-a11y",
+      "prettier"
+    ],
+    "rules": {
+      "jsx-a11y/alt-text": "warn",  // Cambia de "error" a "warn" si prefieres advertencias
+      "no-unused-vars": "warn",     // Cambia de "error" a "warn" si prefieres advertencias
+      "react/prop-types": "off",     // Desactiva la regla de prop-types si no usas PropTypes
+      "prettier/prettier": "off", // Desactiva las reglas de Prettier
+      "react/react-in-jsx-scope": "off",
+    "react/no-deprecated": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/no-unescaped-entities": "off"
+    }
+  }

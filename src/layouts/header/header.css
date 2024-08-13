@@ -4,6 +4,27 @@
 
 }
 
+
+
+.Logo{
+    width: auto;
+    height: 50px;
+    overflow: hidden; /* Asegura que no se desborde */
+    position: relative;
+    cursor: pointer;
+}
+.Logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen para cubrir todo el div */
+    display: block; /* Elimina el espacio blanco debajo de la imagen */
+}
+
+
+
+
+
+
 .h{
     color: var(--color-primary) !important;
     font-family: var(--letter-title) !important;

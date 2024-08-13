@@ -3,7 +3,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import mapboxgl from 'mapbox-gl';
 
 const Footer = () => {
-    const MAPBOX_ACCESS_TOKEN = 'ADD YOUR ACCESS TOKEN';
+    const MAPBOX_ACCESS_TOKEN = 'pk.eyJ1IjoiZHV2YW5hIiwiYSI6ImNrbTZtcWV4NTAwa3gydXFmbGs3bG0wd3MifQ.bWbS5TJuMSdntDXb_7l4aQ';
 
     useEffect(() => {
       mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;

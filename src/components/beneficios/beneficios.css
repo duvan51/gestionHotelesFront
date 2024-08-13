@@ -30,4 +30,5 @@
 .beneficios{
     width: 100%;
     background-color: white;
+    flex-wrap: wrap;
 }

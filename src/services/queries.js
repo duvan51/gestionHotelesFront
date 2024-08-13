@@ -155,6 +155,12 @@ export const GET_ALOJAMIENTO_ID = gql`
         price
         id
         alojamientoId
+         beneficios {
+              id
+              imagePrincipal
+              title
+              description
+        }
       }
     }
   }

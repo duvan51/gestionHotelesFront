@@ -1,8 +1,15 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 
 const Product = ({data}) => {
+  const navigate = useNavigate();
+  
 
-    console.log(data)
+  const handleCardClick = (id) => {
+    navigate(`/views/${id}`)
+};
+
+  
 
   return (
     <div>
@@ -16,7 +23,7 @@ const Product = ({data}) => {
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </p>
-          <a className="btn btn-primary">
+          <a className="btn btn-primary"onClick={() => handleCardClick(data.id)}>
             Go somewhere
           </a>
         </div>

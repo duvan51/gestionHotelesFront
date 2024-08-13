@@ -23,7 +23,7 @@ const AlojamientoId = () => {
 
 
 
-  //console.log(alojamiento);
+  console.log(alojamiento);
   
 
   if (loading) return <p>Loading...</p>;

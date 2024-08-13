@@ -11,6 +11,8 @@ import { Link,useNavigate} from "react-router-dom";
 import Login from "../../components/Login/login.js";
 import Car from "../../components/Car/car.js";
 
+import Logo from '../../assets/logo.png'
+
 const Header = () => {
   const navigate = useNavigate();
   const UserName = localStorage.getItem("UserName");
@@ -28,7 +30,9 @@ const Header = () => {
   return (
     <Navbar expand="lg" className="header ">
       <Container>
-        <Navbar href="#home">AlojaNow</Navbar>
+        <Navbar className="Logo" to="/" onClick={()=>{navigate(`/`)}}>
+          <img src={Logo} alt="logo de empresa"/>
+        </Navbar>
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
           className="border border-light rounded-3 text-primary-emphasis"

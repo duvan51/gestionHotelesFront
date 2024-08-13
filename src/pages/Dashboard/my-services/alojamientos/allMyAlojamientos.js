@@ -30,7 +30,7 @@ const AllMyAlojamientos = () => {
   navigate(`/dashboard/all&alojamientos/${id}`)
  };
 
-
+ console.log(loading, error)
 
 
   return (

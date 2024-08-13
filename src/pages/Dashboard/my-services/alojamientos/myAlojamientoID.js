@@ -4,12 +4,12 @@ import { GET_ALOJAMIENTO_ID } from "../../../../services/queries";
 import { useParams } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 import Nav from 'react-bootstrap/Nav';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 
 
 
 const AlojamientoId = () => {
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
 
     
 

@@ -43,19 +43,19 @@ const IdMyBooking = () => {
           <div className="d-flex justify-content-center">
             <div className="grid-fotos grid text-center pt-5">
               <div className="grid-item item1">
-                <img src={imagePrueba} />
+                <img src={imagePrueba}  alt='dd'/>
               </div>
               <div className="grid-item item2">
-                <img src={imagePrueba} />
+                <img src={imagePrueba}  alt='dd' />
               </div>
               <div className="grid-item item3">
-                <img src={imagePrueba} />
+                <img src={imagePrueba}  alt='dd' />
               </div>
               <div className="grid-item item4">
-                <img src={imagePrueba} />
+                <img src={imagePrueba}  alt='dd' />
               </div>
               <div className="grid-item item5">
-                <img src={imagePrueba} />
+                <img src={imagePrueba}  alt='dd' />
               </div>
             </div>
           </div>

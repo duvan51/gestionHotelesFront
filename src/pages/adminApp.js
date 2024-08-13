@@ -17,6 +17,8 @@ const Users = () => {
 
   const [ addBeneficios, { data:datas, loading:loadings, error:errors}] = useMutation(Add_Beneficios);
 
+
+
   const [ formData, setFormData] = useState({
     title : "",
     description: "",
@@ -29,7 +31,7 @@ const Users = () => {
   const [imageUrl, setImageUrl] = useState("");
  
 
-
+console.log(imageUrl, loadings, errors)
 
 
   if (loading) return <p>Loading...</p>;

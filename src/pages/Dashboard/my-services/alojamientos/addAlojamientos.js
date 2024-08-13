@@ -32,7 +32,7 @@ const AddAlojamientos = () => {
  
 
 
-
+  console.log(addData, addLoading, addError, userLoading, userError, imageUrl)
 
   useEffect(() => {
     if (userData && userData.getUser) {

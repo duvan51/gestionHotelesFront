@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { typeOfAlojamientos } from "../../services/apiColombia.js";
 import { useQuery } from "@apollo/client";
 import { GET_ALOJAMIENTOS } from "../../services/queries";
 
-import NavDropdown from "react-bootstrap/NavDropdown";
 import { Pagination } from 'flowbite-react';
 import CardAlojamientos from "./cardsAlojamientos/cardAlojamientos.js";
 import Searching from '../../components/search/search.js';

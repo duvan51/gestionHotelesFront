@@ -14,7 +14,7 @@ const DeleteAlojamiento = ({deletBo}) => {
     //refetchQueries: ["GetAlojamientos"], // Refresca los datos después de la eliminación
   });
 
-  
+  console.log(error)
     
 
   

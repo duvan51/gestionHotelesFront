@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { render } from "react-dom";
 import Swal from "sweetalert2";
@@ -23,6 +22,9 @@ const HeaderDashboard = () => {
   const { loading, error, data } = useQuery(GET_USERS_uniq);
 
   const MySwal = withReactContent(Swal);
+
+
+  console.log(UserName, token, loading, error)
 
   const handleLogut = () => {
     localStorage.removeItem("token");
@@ -96,7 +98,7 @@ const HeaderDashboard = () => {
                   className="imageProfile d-flex flex-row align-items-center justify-content-center rounded-circle"
                 >
                   <div className="contentImageProfile  rounded-circle d-flex flex-row align-items-center justify-content-center">
-                    <img src={ImageProfile} />
+                    <img src={ImageProfile}  alt='dd' />
                   </div>
                 </button>
               </div>

@@ -11,6 +11,9 @@ import ButtonDeleteRoom from './deleteRoom.js'
 import CreateRoom from './createRooms.js'
 
 
+import Beneficios from "../../../../components/beneficios/beneficioId.js";
+
+
 const Housing = () => {
 
   const [user, setUser] = useState(null)
@@ -62,6 +65,7 @@ const Housing = () => {
           </div>
           <Tab.Content>
           {Alojamientos.map((product)=>(
+           
                 <Tab.Pane eventKey={product.id} key={product.id} >
                   <Table responsive>
                 <thead>
@@ -74,25 +78,26 @@ const Housing = () => {
                     <th>edit</th>
                   </tr>
                 </thead>
-                <tbody>
+                
                     {(product.typeOfHabitacion).map((x) => (
-                     
-                      <tr key={x.id}>
-                        <td>{x.id}</td>
-                        <td > {x.nameOfHabitacion}</td>
-                        <td > {x.numberHabitacions}</td>
-                        <td > {x.numbersCama}</td>
-                        <td > {x.price}</td>
-                        <td >
-                          
+                      //console.log(x),
+                      <tbody key={x.id} className='mb-2'>
+                        <tr key={x.id}>
+                          <td>{x.id}</td>
+                          <td > {x.nameOfHabitacion}</td>
+                          <td > {x.numberHabitacions}</td>
+                          <td > {x.numbersCama}</td>
+                          <td > {x.price}</td>
+                          <td >
                           <ButtonDeleteRoom idRoom={x.id}/>
                           <button>🟥</button>
-
-                        </td>
-                      </tr>
+                          </td>
+                        </tr>
+                        <tr className='w-100 bg-light'>
+                            <Beneficios databeneficio={x.beneficios}/>
+                        </tr>
+                      </tbody>   
                       ))}
-                      
-                </tbody>
                 
               </Table>
                 <CreateRoom idHotel={activeAlojamiento} />

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { useQuery , useMutation} from '@apollo/client';
 import { GET_USERS_ALOJAMIENTOS, Add_Beneficios } from '../services/queries';
+import axios from "axios";
 
 import Accordion from 'react-bootstrap/Accordion';
 import Table from 'react-bootstrap/Table';
@@ -23,8 +24,10 @@ const Users = () => {
     iconoPrincipal: ""
   })
 
-  const [ image, setImage] =useState(null)
+  const [imagePrincipal, setImagePrincipal] = useState(null);
 
+  const [imageUrl, setImageUrl] = useState("");
+ 
 
 
 
@@ -41,9 +44,41 @@ const Users = () => {
       [name] : value
     })
   }
+
+  //image ------------------
   const handleImageChange = (e)=>{
-    setImage(e.target.files[0])
+    setImagePrincipal(e.target.files[0]);
   }
+  const uploadImage = async () => {
+    const formData = new FormData();
+    formData.append("file", imagePrincipal);
+    formData.append("upload_preset", "images-hoteles-backend");
+
+    try {
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/dlkky5xuo/image/upload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      const imageUrl = response.data.secure_url;
+      setImageUrl(imageUrl);
+
+      return imageUrl;
+    } catch (err) {
+      console.error("Error uploading image:", err.message);
+      console.error(
+        "Detalles del error:",
+        err.response ? err.response.data : "Sin detalles de error de red"
+      );
+      throw err;
+    }
+  };
+
+  //end image------------------------
 
 
 
@@ -53,12 +88,16 @@ const Users = () => {
     e.preventDefault();
     // Aquí puedes agregar la lógica para registrar al usuario
     try {
+      let imageUrl = "";
+      if (imagePrincipal) {
+        imageUrl = await uploadImage();
+      }
 
       const response = await addBeneficios({
         variables: {
           title: formData.title,
           description: formData.description,
-          imagePrincipal: formData.imagenPrincipal,
+          imagePrincipal: imageUrl,
           iconoPrincipal: formData.iconoPrincipal
         },
       });
@@ -81,10 +120,11 @@ const Users = () => {
 
 
 
+  const x = (x)=>{console.log(x)}
 
 
   return (
-    <div className='pl-8'>
+    <div className='panelAdmin'>
       <div className='CardsInfo' >
         <div className='div1'>
             Total Alojamientos
@@ -103,7 +143,7 @@ const Users = () => {
         </div>
       </div>
 
-      <div className='contenido ps-5 pe-5 '>
+      <div className='contenido'>
       <Accordion defaultActiveKey="0" >
         {data.getUsers.map(user => (
           <Accordion.Item eventKey= {user.id} key={user.id} >
@@ -144,9 +184,11 @@ const Users = () => {
                           <td>{x.title}</td>
                         </tr>
                       ))} 
-                      <div>
+                      <tr>
+                      <td>
                         <></>
-                      </div> 
+                      </td> 
+                      </tr>
                   </tbody>
                 </Table>
               </Accordion.Body>
@@ -157,8 +199,9 @@ const Users = () => {
 
 
 
-
-      <div className='createBeneficios'>
+      <div className='AllBeneficios '>
+        <div className='createBeneficios'>
+        <h3>Beneficios</h3>
       <Form onSubmit={handleSubmit} >
       <fieldset>
         <Form.Group className="mb-3">
@@ -205,11 +248,13 @@ const Users = () => {
       </fieldset>
     </Form>
       </div>
-
       
       <div className='beneficios'>
-        <Beneficios />
+        <Beneficios databeneficios={x}/>
       </div>
+
+      </div>
+      
 
       
     </div>

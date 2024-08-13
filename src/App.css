@@ -20,6 +20,7 @@
 
 @import './pages/adminApp.css';
 @import './components/Card/products.css';
+@import './components/beneficios/beneficios.css';
 
 
 /*bibliotecas de api carrousel*/

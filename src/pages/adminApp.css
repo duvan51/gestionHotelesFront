@@ -13,6 +13,10 @@
 .div4 { grid-area: 4 / 4 / 6 / 6; }
 
 
-.contenido{
-    height: 100vh;
+.panelAdmin{
+    padding: 0 32px;
+}
+
+.createBeneficios{
+    padding-top: 32px;
 }

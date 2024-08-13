@@ -1,0 +1,33 @@
+.tarjetBeneficios{
+    display: flex;
+    width: auto;
+    height: 30px;
+    gap: 5px;
+    padding: 0 8px;
+    background-color: #2e334e;
+    background-color:#90EE90
+}
+.tarjetBeneficiosImg{
+    width: 20px;
+    height: 20px;
+}
+
+.tarjetBeneficiosImg img{
+    width: 20px;
+    height: 20px;
+}
+
+
+
+.tarjetBeneficiosTitle{
+    color: white;
+    width: auto;
+}
+
+
+
+
+.beneficios{
+    width: 100%;
+    background-color: white;
+}

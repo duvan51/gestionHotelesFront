@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import Accordion from "react-bootstrap/Accordion";
@@ -9,8 +9,12 @@ import * as yup from 'yup';
 import { useMutation } from '@apollo/client';
 import { Add_Room } from '../../../../services/queries';
 
+import Beneficios from "../../../../components/beneficios/beneficios";
+
 const CreateRooms = ({idHotel}) => {
   const [AddRoom, { data, loading, error }] = useMutation(Add_Room);
+  const [listBeneficios, setListBeneficios] = useState([]);
+  const [beneficiosData, setBeneficiosData] = useState([]);
 
   const { Formik } = formik;
 
@@ -34,6 +38,7 @@ const CreateRooms = ({idHotel}) => {
           numbersCama: values.numbersCama,
           price: values.price,
           alojamientoId: idHotel, // Ejemplo de alojamientoId, ajusta según sea necesario
+          beneficiosId:listBeneficios
         },
       });
 
@@ -49,6 +54,20 @@ const CreateRooms = ({idHotel}) => {
       console.error('Detalles del error:', err.networkError ? err.networkError.result : 'Sin detalles de error de red');
     }
   };
+
+
+  // Actualiza listBeneficios cada vez que beneficiosData cambia
+  useEffect(() => {
+    if(beneficiosData){
+      setListBeneficios(
+        beneficiosData.map(x => parseInt(x.trim()))
+      );
+    }
+    
+  }, [beneficiosData]);
+
+ 
+  
 
   return (
     <div>
@@ -111,6 +130,9 @@ const CreateRooms = ({idHotel}) => {
                       value={values.price}
                     />
                   </FloatingLabel>
+                  <div>
+                    <Beneficios databeneficios={(data) => setBeneficiosData(data)} />
+                  </div>
 
                   <Button type="submit">Agregar Habitación</Button>
                 </Form>

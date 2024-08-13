@@ -67,6 +67,12 @@ export const GET_USERS_uniq = gql`
           price
           id
           alojamientoId
+           beneficios {
+              id
+              imagePrincipal
+              title
+              description
+    }
         }
       }
       Reservas {
@@ -87,6 +93,8 @@ export const GET_USERS_uniq = gql`
           price
           typeOfHabitacion {
             id
+           
+
           }
         }
       }
@@ -218,6 +226,8 @@ export const GetReservaAlojamiento = gql`
       numberHabitacions
       numbersCama
       price
+
+      
     }
       }
   }
@@ -227,6 +237,18 @@ export const GetReservaAlojamiento = gql`
 export const GetBeneficios = gql`
   query GetBeneficio{
     getBeneficios {
+    description
+    iconoPrincipal
+    id
+    imagePrincipal
+    title
+  }
+  }
+
+`
+export const GetBeneficioById = gql`
+  query GetBeneficio($id: ID!){
+    getBeneficios(id: $id) {
     description
     iconoPrincipal
     id
@@ -313,6 +335,7 @@ export const Add_Room = gql`
     $numbersCama: Int!
     $price: String!
     $alojamientoId: String!
+    $beneficiosId: [Int!]
   ) {
     createTypeOfHabitacion(
       numberHabitacions: $numberHabitacion
@@ -320,9 +343,18 @@ export const Add_Room = gql`
       numbersCama: $numbersCama
       price: $price
       alojamientoId: $alojamientoId
+      beneficiosId: $beneficiosId
     ) {
       nameOfHabitacion
       price
+      numberHabitacions
+      numbersCama
+      price
+      alojamientoId
+      beneficios {
+        id
+        title
+      }
     }
   }
 `;

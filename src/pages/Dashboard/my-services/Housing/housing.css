@@ -4,3 +4,14 @@
 .hotelsReservas>div:nth-child(:first-child){
     width: 700px !important;
 }
+
+
+
+.tablee{
+    width: 100%;
+}
+
+
+.table>tbody:first{
+    background-color: aqua;
+}

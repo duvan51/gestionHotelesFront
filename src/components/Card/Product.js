@@ -8,7 +8,7 @@ const Product = ({data}) => {
     <div>
       <div className="card" >
       <div className="cardImage">
-        <img src={data.imagePrincipal} className="card-img-top"  />
+        <img src={data.imagePrincipal} className="card-img-top"  alt=""/>
       </div>
         <div className="card-body"> 
           <h5 className="card-title">{(data.title)}</h5>

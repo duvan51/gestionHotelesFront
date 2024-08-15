@@ -39,9 +39,10 @@ const Header = () => {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto menu">
-            <Container className="d-flex justify-content-between">
-              <div>
-                
+            <Container className="d-flex justify-content-between optionMobil">
+              <div className="spaceBlank">
+               
+
               </div>
 
               <div className="HeaderOptions">
@@ -93,7 +94,7 @@ const Header = () => {
                          Logout 
                       </button>
                     </div>
-                    <div>Hello : {UserName}</div>
+                    <div className="headerName">Hello : {UserName}</div>
                   </div>
                 )}
                 {UserName ? (

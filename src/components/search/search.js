@@ -77,6 +77,7 @@ const Search = ({onData}) => {
 
   return (
     <div className="search">
+      <div className="searchButton" >
       <input
         value={search}
         onChange={searcher}
@@ -85,15 +86,15 @@ const Search = ({onData}) => {
         className="form-control"
         
       />
-
       <button onClick={sendDataToParent} className="btn btn-success">
         search
       </button>
 
+      </div>
       <div className="HeaderFilter">
         <NavDropdown
           onSelect={handleSelect}
-          title="Destino"
+          title="Ciudad"
           id="basic-nav-dropdown"
           className="items-city"
         >

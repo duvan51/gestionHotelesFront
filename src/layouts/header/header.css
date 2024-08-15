@@ -135,3 +135,44 @@
 .swal2-show{
     top: 60px;
 }
+
+
+
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .optionMobil{
+        width: 100% !important;
+    }
+    .HeaderOptions{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 30% 30% 30%;
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 1px;
+
+    }
+    .HeaderOptions>.nav-item>.dropdown-menu{
+        position: absolute;
+        left: -20px;
+        top: 50px;
+
+
+    }
+    
+    .headerName{
+        display: none !important;
+    }
+    .spaceBlank{
+        display: none !important;
+    }
+
+
+    .MenuCar{
+        top:50px;
+    }
+
+
+
+}

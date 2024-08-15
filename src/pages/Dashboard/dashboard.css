@@ -30,6 +30,10 @@
     width: 100%;
     margin: 20px 50px;
   }
+  .sidebarMobil{
+    display: none;
+  }
+
 
 
 /*   -----Card Dashboard ------   */
@@ -48,3 +52,41 @@
   color: var(--color-primary)!important;
 }
   
+
+@media (max-width: 768px) {
+  .sidebarEscritorio{
+    display: none;
+  }
+  .content{
+    width: 100%;
+    margin-left: 40px;
+  }
+  .sidebar{
+    width: 40px !important;
+    justify-content: center !important;
+    z-index: 99999999;
+    margin:0px;
+    padding: 0px;
+  }
+  .sidebarMobil{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+   
+  }
+  .sidebarMobil>.MenuSidebarIcono{
+    display: flex;
+    width: 80%;
+    height: 50px;
+    border-bottom: 1px solid var(--color-primary);
+  }
+  .sidebarMobil>.MenuSidebarIcono>svg{
+    width: 100%;
+    height: 100%;
+  }
+  .sidebarMobil>.MenuSidebarIcono>svg:hover{
+    color: var(--background-boton);
+  }
+
+}

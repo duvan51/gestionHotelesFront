@@ -11,10 +11,28 @@
     align-items: center;
     gap: 13px;
 }
+.searchButton{
+  display: flex;
+}
+
+.HeaderFilter{
+  padding: 20px 0;
+  display: flex;
+  gap:20px;
+  color: var(--color-primary);
+}
+.HeaderFilter>div{
+  border:2px solid var(--background-boton);
+  border-radius: 5%;
+  padding: 5px;
+}
+
+
 
 .listCitys{
     overflow-y: auto;
     max-height: 300px;
+
 
 }
 .listCitys>div>a{
@@ -37,3 +55,31 @@
     display: block;
     width: 100%;
   }
+
+
+
+  @media (max-width: 768px) {
+    .search{
+       background-color: var(--color-primaryTransparent) ;
+       padding: 16px 0px 0px 0px;
+       border-radius:3%;
+       gap: 4px;
+       display: flex;
+       flex-direction: column;
+      }
+   
+    .searchButton{
+      gap: 8px;
+    }
+    .searchButton>input{
+      width: 100%;
+    }
+    .HeaderFilter>div{
+      border:2px solid var(--background-boton);
+      border-radius: 5%;
+      padding: 5px;
+      background-color: var(--background-primary) ;
+    }
+   
+       
+}

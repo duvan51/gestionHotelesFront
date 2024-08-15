@@ -5,6 +5,17 @@ import { GET_USERS_uniq } from "../../services/queries";
 import { useQuery } from "@apollo/client";
 import { CartContext } from "../../context/carContext";
 
+
+
+import { FaList } from "react-icons/fa";
+import { FaUserTie } from "react-icons/fa6";
+import { FaBuildingUser } from "react-icons/fa6";
+import { AiFillDashboard } from "react-icons/ai";
+import { RiUserSettingsFill } from "react-icons/ri";
+import { FaHistory } from "react-icons/fa";
+import { MdOutlineBedroomParent } from "react-icons/md";
+import { IoBagCheckSharp } from "react-icons/io5";
+
 const Sidebar = () => {
   const { loading, error, data } = useQuery(GET_USERS_uniq);
   const [Alojamientos, setAlojamientos] = useState([]);
@@ -20,11 +31,11 @@ const Sidebar = () => {
   }, [data]);
 
 
+
   return (
     <div className="sidebar">
-      {/*grupo de cosas de perfil"*/}
-
-      <div className="sidebarGrups">
+      {/*sidebar escritorio*/}
+      <div className="sidebarGrups sidebarEscritorio">
         <Accordion defaultActiveKey="0">
           <Accordion.Item eventKey="0">
             <Accordion.Header>Mi cuenta</Accordion.Header>
@@ -191,6 +202,46 @@ const Sidebar = () => {
           </Link>
         </div>
       </div>
+
+
+
+
+
+
+
+      { /*mobil*/}
+      <div className="sidebarMobil">
+        <Link className="MenuSidebarIcono" to="/dashboard">
+          <FaUserTie />
+        </Link>
+        <Link className="MenuSidebarIcono" to="/dashboard/my-profile">
+          <AiFillDashboard />
+        </Link>
+        <Link className="MenuSidebarIcono" to="/dashboard/my-bookings">
+          <FaHistory />
+        </Link>
+        <Link className="MenuSidebarIcono" to="/dashboard/all&alojamientos">
+          <FaBuildingUser />
+        </Link>
+        <Link className="MenuSidebarIcono" to="/dashboard/cuartos">
+          <MdOutlineBedroomParent />
+        </Link>
+
+        <Link className="MenuSidebarIcono">
+          <RiUserSettingsFill />
+          <IoBagCheckSharp />
+        </Link>
+        
+        
+        <Link className="MenuSidebarIcono">
+          <FaList />
+        </Link>
+        
+        <Link className="MenuSidebarIcono"  to="/dashboard/carr">
+          <IoBagCheckSharp />
+        </Link>
+      </div>
+      
     </div>
   );
 };

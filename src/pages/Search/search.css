@@ -10,17 +10,7 @@
     justify-content: space-between;
 }
 
-.HeaderFilter{
-    padding: 20px 0;
-    display: flex;
-    gap:20px;
-    color: var(--color-primary);
-}
-.HeaderFilter>div{
-    border:2px solid var(--background-boton);
-    border-radius: 5%;
-    padding: 5px;
-}
+
 .PageSearchBodyAlojamientos{
     display: flex;
     flex-direction: column;
@@ -63,4 +53,17 @@
     border-top-right-radius: .5rem;
     border-bottom-right-radius: .5rem;
     
+}
+
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+
+    .PageSearch{
+        padding: 0 10px;
+        
+    }
+    .PageSearchBody{
+        padding-top: 32px;
+    }
 }

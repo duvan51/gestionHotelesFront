@@ -10,6 +10,7 @@ import RegisterUser from "./pages/registerUser/registerUser.js";
 import Dashboard from "./pages/Dashboard/dashboard.js";
 
 import Sidebar from "./layouts/Sidebar/sidebar.js";
+import sidebarMobil from "./layouts/Sidebar/sidebarMobil.js";
 import Alojamientos from "./pages/Dashboard/my-services/Housing/housing.js";
 
 import Summary from "./pages/Dashboard/my-services/summary/summary.js";

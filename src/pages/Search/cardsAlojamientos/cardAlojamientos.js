@@ -15,8 +15,8 @@ const CardAlojamientos = ({info}) => {
     navigate(`/views/${id}`)
 };
 console.log(info)
-
   return (
+
     <div className='cards'>
         <Card>
             <Card.Header>
@@ -28,7 +28,7 @@ console.log(info)
               </div>
               
             </Card.Header>
-            <Row className='cardRow'>
+            <Row className='cardRows'>
                 <Col className='cardImage'>
                   <Image src={`${info.imagePrincipal}`} thumbnail fluid/>
                 </Col>

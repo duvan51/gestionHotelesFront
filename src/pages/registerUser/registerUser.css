@@ -7,4 +7,16 @@ background-color: var(--background-primary);
     margin: 0 100px;
     padding: 100px 0;
  }
- 
+ @media (max-width: 768px) {
+   .registerUser{
+      padding: 0 16px;
+   }
+   .registerUserBody{
+      margin: 0px;
+      padding-top: 32px;
+   }
+   .registerUserBody>form{
+      padding-top:16px;
+   }
+
+ }

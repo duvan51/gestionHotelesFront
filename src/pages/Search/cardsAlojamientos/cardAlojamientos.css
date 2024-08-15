@@ -13,7 +13,38 @@
     color: rgb(85, 85, 85);
     font-style: italic;
 }
-.cardRow{
+.cardRows{
     display: grid !important;
     grid-template-columns: 30% 70%;
+}
+.cardRows>div:nth-child(2)>div>button{
+    width: auto;
+
+}
+
+@media (max-width: 768px) {
+    .cardRows{
+        display: grid !important;
+        grid-template-columns: 59% 39%;
+        padding: 0 12px;
+    }
+    .cardRows>div:nth-child(2)>div{
+        padding: 4px;
+    }
+    .cardRows>div:nth-child(2)>div>p{
+        overflow: hidden;             /* Oculta el texto que se desborda del contenedor */
+        display: -webkit-box;         /* Necesario para utilizar -webkit-line-clamp */
+        -webkit-line-clamp: 4;        /* Limita el texto a 3 líneas */
+        -webkit-box-orient: vertical; /* Define la orientación de la caja */
+        text-overflow: ellipsis;      /* Añade puntos suspensivos al final del texto truncado */
+        height: 100px;  
+
+    }
+    .cardRows>div:nth-child(2)>div>button{
+    
+        width: auto;
+      
+
+    }
+
 }

@@ -6,12 +6,17 @@ import { GET_ALOJAMIENTOS } from '../../services/queries';
 
 import CardProduct from '../../components/Card/Product'
 
+import { useMediaQuery } from 'react-responsive';
+
 function MultipleItems({ciudad}) {
 
     const [ciudades, setCiudades] = useState([]);
 
     const { loading, error, data } = useQuery( GET_ALOJAMIENTOS );
-    
+
+
+    //media queries 
+    const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
     
     
     
@@ -27,16 +32,13 @@ function MultipleItems({ciudad}) {
       if (error) return <p>Error: {error.message}</p>;
 
 
-     
-
-
 
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: isMobile? 1:3,
+    slidesToScroll:isMobile? 1:3,
   };
 
 

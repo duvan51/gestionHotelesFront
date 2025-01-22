@@ -116,6 +116,20 @@ export const GET_ALOJAMIENTOS = gql`
       numberPhone
       pais
       whattsap
+      typeOfHabitacion {
+        nameOfHabitacion
+        numberHabitacions
+        numbersCama
+        price
+        id
+        alojamientoId
+         beneficios {
+              id
+              imagePrincipal
+              title
+              description
+        }
+      }
     }
   }
 `;

@@ -1,24 +1,48 @@
 .cards{
     width:100%;
+    
 }
+.card{
+    align-items: center;
+}
+
 .card-header{
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.card-header>div:nth-child(1){
+.cardsHeader{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.cardsHeader>div:nth-child(1){
     font-weight: bold;
 }
-.card-header>div:nth-child(2){
+.cardsHeader>div:nth-child(2){
     color: rgb(85, 85, 85);
     font-style: italic;
 }
 .cardRows{
-    display: grid !important;
-    grid-template-columns: 30% 70%;
+    display:flex;
+    width: 100%;
+    grid-template-columns: 30% 65%;
+    
+}
+.cardRows>div:nth-child(1){
+    height: 400px;
+}
+.cardRows>div:nth-child(2)>div>p{
+    
 }
 .cardRows>div:nth-child(2)>div>button{
     width: auto;
+
+}
+.cardBeneficios>div{
+    display: flex;
+    justify-content: flex-end;
 
 }
 

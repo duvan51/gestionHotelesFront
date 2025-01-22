@@ -41,7 +41,7 @@ const AddAlojamientos = () => {
   }, [userData]); // e<- add empty brackets here
 
   const x = Number(idUser); //convertir el id en number
-  console.log(idUser);
+ 
 
   const { Formik } = formik;
 
@@ -175,11 +175,13 @@ const AddAlojamientos = () => {
                 rows={3}
               />
             </FloatingLabel>
+
             <FloatingLabel
               controlId="imagePrincipal"
               label="Image Principal"
               className="mb-3"
             >
+              
               <Form.Control
                 type="file"
                 size="lg"
@@ -188,6 +190,8 @@ const AddAlojamientos = () => {
                 onChange={handleImageChange}
               />
             </FloatingLabel>
+
+
             <FloatingLabel
               controlId="numberPhone"
               label="numero telefonico"

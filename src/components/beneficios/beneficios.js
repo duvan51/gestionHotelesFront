@@ -49,6 +49,7 @@ const Beneficios = ({ databeneficios }) => {
                 {x.title}
              </div>
              
+             
       
           </div>
        ))

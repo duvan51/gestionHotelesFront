@@ -16,6 +16,8 @@ const Search = () => {
 
   const { loading, error, data } = useQuery(GET_ALOJAMIENTOS);
 
+  
+
   let results = [];
   if (!dataFromChild) {
     results = alojamientos;

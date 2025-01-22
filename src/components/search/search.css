@@ -11,8 +11,13 @@
     align-items: center;
     gap: 13px;
 }
+.search>div:nth-child(1){
+  width:70% ;
+}
 .searchButton{
   display: flex;
+    gap: 8px;
+
 }
 
 .HeaderFilter{
